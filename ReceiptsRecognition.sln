@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FCF757CA-600
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ReceiptsRecognition.Cli", "src\ReceiptsRecognition.Cli\ReceiptsRecognition.Cli.fsproj", "{671D2827-6890-4B47-BB37-4E33C8D97D5B}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ReceiptsRecognition.Domain", "src\ReceiptsRecognition.Domain\ReceiptsRecognition.Domain.fsproj", "{5C3122C9-C02B-4837-AE8F-176D2C99C13C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{671D2827-6890-4B47-BB37-4E33C8D97D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{671D2827-6890-4B47-BB37-4E33C8D97D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{671D2827-6890-4B47-BB37-4E33C8D97D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3122C9-C02B-4837-AE8F-176D2C99C13C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3122C9-C02B-4837-AE8F-176D2C99C13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3122C9-C02B-4837-AE8F-176D2C99C13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3122C9-C02B-4837-AE8F-176D2C99C13C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{671D2827-6890-4B47-BB37-4E33C8D97D5B} = {FCF757CA-6009-4467-8220-D1C5AA79C4C9}
+		{5C3122C9-C02B-4837-AE8F-176D2C99C13C} = {FCF757CA-6009-4467-8220-D1C5AA79C4C9}
 	EndGlobalSection
 EndGlobal
