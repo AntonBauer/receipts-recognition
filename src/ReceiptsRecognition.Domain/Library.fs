@@ -3,11 +3,13 @@
 open Tesseract
 
 module Say =
-    let hello filePath =
-        let engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default)
+    let hello tesseractDataPath language filePath =
+        let engine = new TesseractEngine(tesseractDataPath, language, EngineMode.Default)
         let image = Pix.LoadFromFile(filePath)
-        let text = engine.Process(image)
+        let processed = engine.Process(image)
+        let text = processed.GetText()
 
+        processed.Dispose()
         image.Dispose();
         engine.Dispose()
 
