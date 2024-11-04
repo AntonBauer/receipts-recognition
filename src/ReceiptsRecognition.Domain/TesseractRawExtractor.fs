@@ -2,37 +2,25 @@ namespace ReceiptsRecognition.Domain
 
 module TesseractRawExtractor =
 
+    open System.IO
+
     open TextExtractor
     open Tesseract
+    open TesseractLanguage
 
     type TesseractDataPath = TesseractDataPath of string
-    type Language = Language of string
 
     type TesseractExtractorFactory = TesseractDataPath -> Language -> RawExtractor
+
+    let private readBytes stream =
+        use reader = new BinaryReader(stream)
+        reader.ReadBytes((int)stream.Length);
 
     let create:TesseractExtractorFactory =
         fun tesseractDataPath language->
             fun stream ->
-                let engine = new TesseractEngine(tesseractDataPath.ToString(), language.ToString(), EngineMode.Default)
-                let bytes = [| 0uy |]
-                let image = Pix.LoadFromMemory(bytes)
-                let processed = engine.Process(image)
-                let text = processed.GetText()
-
-                processed.Dispose()
-                image.Dispose();
-                engine.Dispose()
-
-                text
-
-    // let extract tesseractDataPath language filePath =
-    //     let engine = new TesseractEngine(tesseractDataPath, language, EngineMode.Default)
-    //     let image = Pix.LoadFromFile(filePath)
-    //     let processed = engine.Process(image)
-    //     let text = processed.GetText()
-
-    //     processed.Dispose()
-    //     image.Dispose();
-    //     engine.Dispose()
-
-    //     text
+                use engine = new TesseractEngine(tesseractDataPath.ToString(), language.ToString(), EngineMode.Default)
+                let bytes = readBytes stream
+                use image = Pix.LoadFromMemory(bytes)
+                use processed = engine.Process(image)
+                processed.GetText()

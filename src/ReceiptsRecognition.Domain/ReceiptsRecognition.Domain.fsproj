@@ -4,6 +4,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="TesseractLanguage.fs" />
     <Compile Include="TextExtractor.fs" />
     <Compile Include="TesseractRawExtractor.fs" />
   </ItemGroup>

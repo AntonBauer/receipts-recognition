@@ -9,4 +9,8 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ReceiptsRecognition.Domain\ReceiptsRecognition.Domain.fsproj" />
+  </ItemGroup>
+
 </Project>
