@@ -1,18 +1,23 @@
-﻿open ReceiptsRecognition.Domain
-open ReceiptsRecognition.Domain.TesseractRawExtractor
+﻿open ReceiptsRecognition.Domain.TesseractRawExtractor
 open System.IO
+open System
 
 let private loadImage path =
     File.OpenRead(path)
 
-printfn "Extracting data since 2024"
+try
+    printfn "Extracting data since 2024"
 
-let language = TesseractLanguage.english
-let dataPath = TesseractDataPath "./tessdata"
-let imagePath = @"C:\Users\AntonBauer\Downloads\test_recipe.jpg"
-let imageData = loadImage imagePath
+    let language = "deu"
+    let dataPath = @""
+    let imagePath = @""
+    let imageData = loadImage imagePath
 
-let extractor = create dataPath language
-let data = extractor imageData
+    let extractor = create dataPath language
+    let data = extractor imageData
 
-printfn "%s" data
+    printfn "%s" data
+    Console.ReadLine() |> ignore
+
+with
+| _ -> Console.ReadLine() |> ignore
